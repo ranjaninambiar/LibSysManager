@@ -6,12 +6,12 @@ const express = require("express"),
 const User = require("../models/user");
 
 //landing page
-router.get('/', (req, res) => {
+router.get('/api/', (req, res) => {
    res.render("landing"); 
 });
 
 //admin login handler
-router.get("/adminLogin", (req, res) => {
+router.get("/api/adminLogin", (req, res) => {
    res.render("admin/adminLogin");
 });
 
