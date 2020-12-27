@@ -5,6 +5,7 @@ const express = require("express"),
   session = require("express-session"),
   passport = require("passport"),
   multer = require("multer"),
+  dotenv = require("dotenv"),
  
   path = require("path"),
   //sanitizer = require("express-sanitizer"),
@@ -17,19 +18,20 @@ const express = require("express"),
   adminRoutes = require("./routes/admin"),
   bookRoutes = require("./routes/books"),
   authRoutes = require("./routes/auth"),
-  mongoString = "mongodb+srv://ranjani:<anandita>@hostman.npiob.mongodb.net/<bookstore>?retryWrites=true&w=majority";
+  //mongoString = "mongodb+srv://ranjani:<anandita>@hostman.npiob.mongodb.net/<bookstore>?retryWrites=true&w=majority";
 // Seed = require('./seed');
 
 // uncomment below line for first time to seed database;
 //Seed(1000);
 
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
+//if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 // app config
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+dotenv.config();
 
 // db config
 mongoose
